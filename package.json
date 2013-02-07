@@ -1,0 +1,13 @@
+{
+  "name": "magic",
+  "version": "0.0.1",
+  "description": "Magic the Gathering group counter",
+  "author": {
+    "name": "Chris Shoff",
+    "email": "chris.shoff@gmail.com"
+  },
+  "main": "./index.js",
+  "dependencies": {
+  	"mustache": ">=0.7.2"
+  }
+}
