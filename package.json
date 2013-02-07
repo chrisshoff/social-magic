@@ -1,7 +1,7 @@
 {
-  "name": "magic",
+  "name": "social-magic",
   "version": "0.0.1",
-  "description": "Magic the Gathering group counter",
+  "description": "Magic the Gathering social counter",
   "author": {
     "name": "Chris Shoff",
     "email": "chris.shoff@gmail.com"
