@@ -1,13 +1,22 @@
 http = require "http"
 url = require "url"
+io = (require "socket.io")
 
-start = (route, handle) ->
+start = (router) ->
 	onRequest = (request, response) ->
-		pathname = url.parse(request.url).pathname
-		console.log "Request for #{pathname} received."
-		route handle, pathname, request, response
+		router.dispatch request, response, (err) ->
+			if err
+				response.writeHead 404, "Content-Type" : "text/plain"
+				response.write "404 Not Found"
+				response.end()
 
-	http.createServer(onRequest).listen 8888
+	server = http.createServer(onRequest)
+	server.listen 8888
+
+	io.listen(server).on 'connection', (socket) ->
+		console.log "Got WS Connection"
+		socket.emit "test", test : "value"
+
 	console.log "Server has started."
 
 exports.start = start

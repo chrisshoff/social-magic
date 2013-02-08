@@ -8,6 +8,9 @@
   },
   "main": "./index.js",
   "dependencies": {
-  	"mustache": ">=0.7.2"
+  	"mustache": ">=0.7.2",
+    "socket.io": ">=0.9.13",
+    "node-static": ">=0.6.7",
+    "director": "1.1.10"
   }
 }

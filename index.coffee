@@ -1,10 +1,15 @@
-server = require('./server')
-router = require('./router')
-requestHandlers = require('./requestHandlers')
+server = require './server'
+director = require 'director'
+requestHandlers = require './requestHandlers'
 
-handle = {}
-handle["/"] = requestHandlers.player
-handle["/player"] = requestHandlers.player
-handle["/table"] = requestHandlers.table
+router = new director.http.Router
+	"/" : 
+		get : requestHandlers.player,
+	"/player" : 
+		get : requestHandlers.player,
+	"/table" : 
+		get : requestHandlers.table,
+	"/public/(.*)" :
+		get : requestHandlers.staticFile
 
-server.start router.route, handle
+server.start router
